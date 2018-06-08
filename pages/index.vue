@@ -2,17 +2,19 @@
   <section class="container">
 
    <el-row>
-     内容
+     <swiper></swiper>
    </el-row>
   </section>
 </template>
 
 <script>
 import AppLogo from '~/components/AppLogo.vue'
+import Swiper from '~/components/index/Swiper.vue'
 
 export default {
   components: {
-    AppLogo
+    AppLogo,
+    Swiper
   }
 }
 </script>
