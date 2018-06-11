@@ -53,7 +53,26 @@
           border-style: dashed dashed solid dashed;
           border-color: transparent transparent #ffff008f transparent;
         }
-      }
+        &::after{
+          content: '';
+          width: 30px;
+          height: 30px;
+          display: block;
+          position: absolute;
+          top: -16px;
+          left: 0;
+          right: 0;
+          margin: auto;
+          width: 0;
+          height: 0;
+          overflow: hidden;
+          font-size: 0;
+          line-height: 0;
+          border: 10px;
+          border-style: dashed dashed solid dashed;
+          border-color: #928e8e00 transparent rgba(0, 0, 0, 0.56078) transparent;
+        }
+      } 
     }
   }
 }
