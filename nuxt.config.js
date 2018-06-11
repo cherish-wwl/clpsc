@@ -21,13 +21,13 @@ module.exports = {
   */
   loading: { color: '#3B8070' },
   plugins: [
-    {src:'~plugins/element-ui',ssr: false}
+    {src:'~plugins/element-ui'}
   ],
   /*
   ** Build configuration
   */
   build: {
-    vendor: ['element-ui'],
+    vendor: ['axios','element-ui'],
     /*
     ** Run ESLint on save
     */
@@ -40,6 +40,24 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
+      const sassResourcesLoader = {  
+        loader: 'sass-resources-loader',  
+        options: {  
+          resources: [  
+           'assets/cyc.scss'  
+          ]  
+        }  
+      }  
+      // 遍历nuxt定义的loader配置，向里面添加新的配置。  
+      config.module.rules.forEach((rule) => {  
+        if (rule.test.toString() === '/\\.vue$/') {  
+          rule.options.loaders.sass.push(sassResourcesLoader)  
+          rule.options.loaders.scss.push(sassResourcesLoader)  
+        }  
+        if (['/\\.sass$/', '/\\.scss$/'].indexOf(rule.test.toString()) !== -1) {  
+          rule.use.push(sassResourcesLoader)  
+        }  
+      })  
     },
     
 
